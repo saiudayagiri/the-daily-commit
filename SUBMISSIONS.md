@@ -127,18 +127,19 @@ Replace this paragraph with a quotation from the researcher, who should be fond 
 
 # ⚽ SPORTS
 
-<!-- CLAIM THIS SLOT — delete this line when you take it -->
 ## 🏆 SLOT F — A MATCH REPORT
 
-### YOUR HEADLINE HERE, ABOUT A GAME THAT ENDED STRANGELY
+### DERBY ABANDONED AFTER BOTH TEAMS BRING THE SAME KIT,, REFEREE GIVES UP
 
-*By Your Name, Sports Desk*
+*By Daniel Okonkwo, Sports Desk*
 
-Replace this paragraph with the result and the score. Sports reports always give the score in the first sentence.
+Sunday's derby between Riverside and Old Market was abandoned after eleven minutes when it became clear that both teams had turned up in identical red shirts,and neither had brought a spare set.
 
-Replace this paragraph with the losing manager explaining themselves badly.
+Referee Halima Yusuf stopped play after awarding a free kick to the wrong side for the third time. "I could of managed with ten," she said afterwards."I could not manage with twenty two.
 
-**Final score.** Team A 0, Team B 0. Modify this line to match your story.
+Old Market's manager blamed the kit man, who blamed the washing machine. Their was no announcement about a replay
+
+**Final score.** Riverside 0, Old Market 0 (abandoned).
 
 ---
 
