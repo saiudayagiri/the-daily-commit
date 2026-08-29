@@ -26,9 +26,9 @@ RULES = [
     ("no-space-after-period", r"[a-z]\.[A-Z][a-z]", "missing space after full stop"),
     ("double-punct", r"(?<![A-Z])(?<!\.)([,.;:!?])(?!\.\.)[,.;:!?]", "repeated punctuation mark"),
     ("lowercase-i", r"\bi\b(?!')", "the pronoun 'I' should be capitalised"),
-    ("lowercase-sentence", r"[.!?]\s+[a-z]", "sentence should start with a capital letter"),
+    ("lowercase-sentence", r"(?<!\.)[.!?]\s+[a-z]", "sentence should start with a capital letter"),
     ("repeated-word", r"\b(\w+)\s+\1\b", "repeated word"),
-    ("a-vs-an", r"\ba\s+[aeiouAEIOU]\w|\ban\s+[b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z]\w", "check 'a' vs 'an'"),
+    ("a-vs-an", r"\ba\s+(?!(?i:uni|use|usual|one|once|euro|utensil|ufo)\w*\b)[aeiouAEIOU]\w|\ban\s+(?!(?i:honest|hour|heir|honou?r|herb)\w*\b)[b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z]\w", "check 'a' vs 'an'"),
     ("unbalanced-quotes", r'^(?:[^"]*"[^"]*")*[^"]*"[^"]*$', "unbalanced quotation marks"),
     ("unbalanced-parens", None, "unbalanced parentheses"),  # handled specially
     ("trailing-space", r"[ \t]+$", "trailing whitespace"),
