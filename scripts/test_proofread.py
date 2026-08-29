@@ -69,6 +69,23 @@ class EachRuleFires(unittest.TestCase):
         msgs = {m for _, m in issues("The cat should of stayed on the mat all day.")}
         self.assertTrue(any("should have" in m for m in msgs))
 
+    def test_no_space_after_quote(self):
+        self.assertIn("no-space-after-quote", names('She said the words."I could not manage," she added.'))
+
+    def test_lowercase_paragraph(self):
+        self.assertIn("lowercase-paragraph", names("the council met on Tuesday to discuss the matter."))
+
+    def test_lowercase_proper_noun(self):
+        self.assertIn("lowercase-proper-noun", names("The council met on saturday to discuss the matter."))
+        self.assertIn("lowercase-proper-noun", names("The council met in august to discuss the matter."))
+
+    def test_double_punct_after_capital(self):
+        self.assertIn("double-punct", names("BOTH TEAMS BRING THE SAME KIT,, REFEREE GIVES UP."))
+
+    def test_their_there(self):
+        msgs = {m for _, m in issues("Their was no announcement about a replay today.")}
+        self.assertTrue(any("there" in m for m in msgs))
+
     def test_missing_end_punct(self):
         self.assertIn("missing-end-punct", names("The cat sat on the mat and then it slept for hours"))
 
@@ -91,6 +108,8 @@ class CorrectProseIsNotFlagged(unittest.TestCase):
         'A survey of 12 million messages found that 60 percent said "fix."',
         '| Time | Sky | Temp |',
         '- a bullet point with a lowercase start is fine',
+        'The train left on Saturday in August, and Dr. Berg was aboard.',
+        'The developer, identified only as "R.," said nothing at all.',
         '> A blockquote that ends properly with a full stop.',
     ]
 

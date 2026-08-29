@@ -24,13 +24,16 @@ RULES = [
     ("space-before-punct", r"\s[,.;:!?](?!\S*\|)", "space before punctuation mark"),
     ("no-space-after-punct", r"[,;:!?][A-Za-z]", "missing space after punctuation"),
     ("no-space-after-period", r"[a-z]\.[A-Z][a-z]", "missing space after full stop"),
-    ("double-punct", r"(?<![A-Z])(?<!\.)([,.;:!?])(?!\.\.)[,.;:!?]", "repeated punctuation mark"),
+    ("double-punct", None, "repeated punctuation mark"),
     ("lowercase-i", r"\bi\b(?!')", "the pronoun 'I' should be capitalised"),
     ("lowercase-sentence", r"(?<!\.)[.!?]\s+[a-z]", "sentence should start with a capital letter"),
     ("repeated-word", r"\b(\w+)\s+\1\b", "repeated word"),
     ("a-vs-an", r"\ba\s+(?!(?i:uni|use|usual|one|once|euro|utensil|ufo)\w*\b)[aeiouAEIOU]\w|\ban\s+(?!(?i:honest|hour|heir|honou?r|herb)\w*\b)[b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z]\w", "check 'a' vs 'an'"),
     ("unbalanced-quotes", r'^(?:[^"]*"[^"]*")*[^"]*"[^"]*$', "unbalanced quotation marks"),
     ("unbalanced-parens", None, "unbalanced parentheses"),  # handled specially
+    ("no-space-after-quote", r'[.,;:!?]"[A-Za-z]', "missing space after closing quotation mark"),
+    ("lowercase-paragraph", None, "paragraph starts with a lowercase letter"),
+    ("lowercase-proper-noun", None, "day and month names need a capital letter"),
     ("trailing-space", r"[ \t]+$", "trailing whitespace"),
 ]
 
@@ -56,10 +59,16 @@ CONFUSABLES = [
     (r"\bits\s+(?:a|an|the|not|very|been|going)\b", "'its' → did you mean 'it's'?"),
     (r"\bit's\s+(?:own|way|place|name|orbit)\b", "'it's' → did you mean 'its'?"),
     (r"\bthere\s+(?:own|car|house|team|work)\b", "'there' → did you mean 'their'?"),
+    (r"\btheir\s+(?:was|were|is|are)\b", "'their' → did you mean 'there'?"),
     (r"\bshould\s+of\b|\bcould\s+of\b|\bwould\s+of\b", "'should of' → 'should have'"),
     (r"\bthen\b\s+(?:me|him|her|us|them)\b", "'then' → did you mean 'than'?"),
     (r"\bless\s+(?:people|things|items|cars|words)\b", "'less' → 'fewer' for countable nouns"),
 ]
+
+PROPER_NOUNS = re.compile(
+    r"\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|"
+    r"january|february|march|april|june|july|august|september|october|november|december)\b"
+)
 
 CODE_FENCE = re.compile(r"^\s*(```|~~~)")
 
@@ -101,6 +110,26 @@ def check_file(path: Path):
 
         for name, pattern, msg in RULES:
             if name in ("trailing-space",):
+                continue
+            if name == "double-punct":
+                for m in re.finditer(r"[,.;:!?]{2,}", line):
+                    seq = m.group()
+                    if set(seq) == {"."}:                       # ellipsis
+                        continue
+                    if seq.startswith(".") and re.search(r"(?<![A-Za-z])[A-Z]$", line[:m.start()]):
+                        continue                                # initial, e.g. R.,
+                    problems.append((n, name, msg, raw.strip()))
+                    break
+                continue
+            if name == "lowercase-paragraph":
+                first = raw.lstrip()
+                if first and first[0].islower() and not first.startswith(("http", "www.")):
+                    problems.append((n, name, msg, raw.strip()))
+                continue
+            if name == "lowercase-proper-noun":
+                hit = re.search(PROPER_NOUNS, line)
+                if hit:
+                    problems.append((n, name, f"'{hit.group()}' needs a capital letter", raw.strip()))
                 continue
             if name == "unbalanced-parens":
                 if line.count("(") != line.count(")"):
