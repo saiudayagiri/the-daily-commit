@@ -29,8 +29,8 @@ cd the-daily-commit
 git switch -c story/my-headline
 ```
 
-### 4. Write your story
-Open `SUBMISSIONS.md`, copy the template at the top, and paste your story at the **bottom** of the file. Do not edit `README.md` — that is the editors' page. Keep the newspaper voice. Make it up — every story here is fiction.
+### 4. Claim a slot and write your story
+Open `SUBMISSIONS.md`. It is a newspaper page that is already laid out and half written; the empty spots are marked **SLOT A** through **SLOT I**. Pick one slot that nobody has claimed, replace its placeholder text with your own story, and delete the `CLAIM THIS SLOT` comment line above it. One slot per pull request. Do not edit `README.md` — that is the editors' page. Keep the newspaper voice. Make it up — every story here is fiction.
 
 ### 5. Proofread locally (this is the step you *couldn't* do on GitHub)
 ```bash
