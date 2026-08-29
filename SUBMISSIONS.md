@@ -39,18 +39,17 @@ Transit officials confirmed the early arrival and said an investigation was unde
 
 ---
 
-<!-- CLAIM THIS SLOT — delete this line when you take it -->
 ## 🏙️ SLOT A — SECOND FRONT-PAGE STORY
 
-### YOUR HEADLINE HERE, IN CAPITAL LETTERS
+### CITY LIBRARY STAYS OPEN ALL NIGHT , READERS REFUSE TO LEAVE
 
-*By Your Name, City Desk*
+*By Meera Krishnan, City Desk*
 
-Replace this paragraph with the opening of your story. Say what happened, where it happened, and when it happened. Front-page openings are one sentence long and do most of the work.
+the Central Library announced on saturday that it would stay open for twenty four hours as a trial, and by midnight  the reading room was fuller than it had been all year.
 
-Replace this paragraph with a quotation from somebody involved. Give them a name, an age, and a job, like the editors did in the story above.
+"i have been coming here since i was six" said Arun Pillai , 34, a taxi driver who arrived at 2 a.m. with a flask of tea. "Its the only quiet place left in the the city."
 
-Replace this paragraph with what happens next. Newspaper stories end by looking forward, not by summing up.
+Library staff said the trial would definately continue for another week. Nobody has left yet
 
 ---
 
