@@ -5,7 +5,7 @@ The Daily Commit — automated proofreader.
 Scans Markdown files for common grammar and punctuation slips.
 No third-party packages needed. Run from the repo root:
 
-    python3 scripts/proofread.py              # check README.md + newsroom/
+    python3 scripts/proofread.py              # check README.md, SUBMISSIONS.md + newsroom/
     python3 scripts/proofread.py path.md ...  # check specific files
 
 Exit code 0 = clean, 1 = problems found (so CI turns red).
@@ -144,7 +144,7 @@ def main(argv):
     if argv:
         files = [Path(a) for a in argv]
     else:
-        files = [REPO / "README.md"] + sorted((REPO / "newsroom").glob("*.md"))
+        files = [REPO / "README.md", REPO / "SUBMISSIONS.md"] + sorted((REPO / "newsroom").glob("*.md"))
 
     total = 0
     for f in files:

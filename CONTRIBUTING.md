@@ -1,5 +1,7 @@
 # Contributing to The Daily Commit
 
+Not set up yet? Start with [SETUP.md](SETUP.md).
+
 You want to get a story into tomorrow's paper. Here is the whole journey, and *why* each step exists.
 
 ## The four walls you'll hit (and the door through each one)
@@ -28,7 +30,7 @@ git switch -c story/my-headline
 ```
 
 ### 4. Write your story
-Either edit `README.md` and add a story under the right section, **or** drop a new file in `newsroom/` (one story per file). Keep the newspaper voice. Make it up — every story here is fiction.
+Open `SUBMISSIONS.md`, copy the template at the top, and paste your story at the **bottom** of the file. Do not edit `README.md` — that is the editors' page. Keep the newspaper voice. Make it up — every story here is fiction.
 
 ### 5. Proofread locally (this is the step you *couldn't* do on GitHub)
 ```bash

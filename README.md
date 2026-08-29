@@ -10,7 +10,7 @@
 
 ---
 
-> **How this newspaper works.** You cannot write directly into this paper; only the editors can. So you *fork* it (get your own printing press), *clone* it (bring the press home), write your story, run the proofreader (`python3 scripts/proofread.py`), *push* to your fork, and *open a pull request*. The editor reads it, the robot proofreader checks it, and if both are happy, your words go into tomorrow's edition. Full instructions live in [CONTRIBUTING.md](CONTRIBUTING.md).
+> **How this newspaper works.** You cannot write directly into this paper; only the editors can. So you *fork* it (get your own printing press), *clone* it (bring the press home), write your story in [SUBMISSIONS.md](SUBMISSIONS.md), run the proofreader (`python3 scripts/proofread.py`), *push* to your fork, and *open a pull request*. The editor reads it, the robot proofreader checks it, and if both are happy, your words go into tomorrow's edition. Setup lives in [SETUP.md](SETUP.md); the full walkthrough is in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
